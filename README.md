@@ -1,5 +1,7 @@
 # Animate-CSS Skill for AI Agents
 
+<img width="1400" height="600" alt="animate-css-banner" src="https://github.com/user-attachments/assets/4b86817b-e899-41d5-a84a-68be9a35b784" />
+
 An AI agent skill that adds [Animate.css](https://github.com/animate-css/animate.css) (v4.1.1) animations to HTML, React/JSX, and WordPress PHP templates — with scroll-trigger support, RTL awareness, and `prefers-reduced-motion` respect baked in. Works with Claude Code, Cursor, Windsurf, GitHub Copilot, and any AI coding agent that supports custom instructions.
 
 ## What it does
