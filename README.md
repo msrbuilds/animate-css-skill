@@ -1,6 +1,6 @@
 # animate-css-skill
 
-A Claude skill that adds [Animate.css](https://animate.style/) (v4.1.1) animations to HTML, React/JSX, and WordPress PHP templates — with scroll-trigger support, RTL awareness, and `prefers-reduced-motion` respect baked in.
+A Claude skill that adds [Animate.css](https://github.com/animate-css/animate.css) (v4.1.1) animations to HTML, React/JSX, and WordPress PHP templates — with scroll-trigger support, RTL awareness, and `prefers-reduced-motion` respect baked in.
 
 ## What it does
 
@@ -193,7 +193,7 @@ Vertical and attention-seeker animations (`fadeInUp`, `pulse`, `bounce`, etc.) a
 
 ## Animate.css version
 
-Bundled: **v4.1.1** — [animate.style](https://animate.style/) — MIT licensed.
+Bundled: **v4.1.1** — [animate-css/animate.css](https://github.com/animate-css/animate.css) — MIT licensed.
 
 The full library is included in `assets/animate.min.css`. Claude extracts only the `@keyframes` and class blocks actually used in your project, keeping your CSS lean.
 
