@@ -1,10 +1,10 @@
-# animate-css-skill
+# Animate-CSS Skill for AI Agents
 
-A Claude skill that adds [Animate.css](https://github.com/animate-css/animate.css) (v4.1.1) animations to HTML, React/JSX, and WordPress PHP templates — with scroll-trigger support, RTL awareness, and `prefers-reduced-motion` respect baked in.
+An AI agent skill that adds [Animate.css](https://github.com/animate-css/animate.css) (v4.1.1) animations to HTML, React/JSX, and WordPress PHP templates — with scroll-trigger support, RTL awareness, and `prefers-reduced-motion` respect baked in. Works with Claude Code, Cursor, Windsurf, GitHub Copilot, and any AI coding agent that supports custom instructions.
 
 ## What it does
 
-When installed, Claude automatically:
+When installed, your AI agent automatically:
 
 - **Picks the right animation** based on element type and context — no guessing needed
 - **Extracts only the CSS you need** from the bundled library instead of loading the full file
@@ -27,7 +27,7 @@ Works across all three environments:
 
 ```
 animate-css-skill/
-├── SKILL.md              # Skill instructions (Claude reads this)
+├── SKILL.md              # Skill instructions (your AI agent reads this)
 └── assets/
     └── animate.min.css   # Bundled Animate.css v4.1.1 (offline, no CDN needed)
 ```
@@ -36,15 +36,19 @@ animate-css-skill/
 
 ## Installation
 
-### Claude Code (CLI, VS Code, JetBrains, Desktop, Web)
-
-Clone the repo and copy the skill folder into your Claude skills directory:
+First, clone the repo:
 
 ```bash
 git clone https://github.com/msrbuilds/animate-css-skill
 ```
 
-**Personal install** (available in all projects):
+Then follow the instructions for your editor or AI agent below.
+
+---
+
+### Claude Code (CLI, VS Code, JetBrains, Desktop, Web)
+
+**Personal install** (available in all your projects):
 
 ```bash
 # macOS / Linux
@@ -63,26 +67,26 @@ mkdir -p .claude/skills/animate-css
 cp -r animate-css-skill/* .claude/skills/animate-css/
 ```
 
-Once installed, use it by typing `/animate-css` in Claude Code or just ask naturally — Claude activates the skill automatically based on context.
+Once installed, type `/animate-css` in Claude Code or just ask naturally — the skill activates automatically based on context.
 
 ---
 
 ### Cursor
 
-Cursor uses its own rules system. Copy the skill instructions into a Cursor rule file:
+Copy the skill into a Cursor rule file:
 
 ```bash
 mkdir -p .cursor/rules
 cp animate-css-skill/SKILL.md .cursor/rules/animate-css.md
 ```
 
-The rule is auto-injected into every AI request in that project. No slash command — Cursor applies it automatically.
+Cursor auto-injects rules into every AI request in that project — no slash command needed.
 
 ---
 
 ### Windsurf / Codeium
 
-Windsurf uses a similar rules directory:
+Copy the skill into the Windsurf rules directory:
 
 ```bash
 mkdir -p .windsurf/rules
@@ -95,28 +99,77 @@ Like Cursor, rules are always-on and applied automatically per project.
 
 ### GitHub Copilot
 
-Copilot reads custom instructions from `.github/copilot-instructions.md`. Append the skill content to that file:
+Append the skill to Copilot's custom instructions file:
 
 ```bash
 mkdir -p .github
 cat animate-css-skill/SKILL.md >> .github/copilot-instructions.md
 ```
 
-Commit and push — Copilot picks it up automatically for the repo. Note: Copilot's instruction file is a single flat file, so if you already have instructions there, merge manually.
+Commit and push — Copilot picks it up automatically for the repo. If you already have instructions in that file, merge manually to avoid duplicates.
 
 ---
 
-### Other AI Editors
+### Zed
 
-For any editor that supports a custom system prompt or rules file, paste the contents of `animate-css-skill/SKILL.md` into the appropriate location. The skill is plain Markdown with YAML frontmatter — most systems can consume it directly.
+Copy the skill into Zed's assistant rules directory:
 
-> **Note:** The bundled `assets/animate.min.css` file is referenced by the skill instructions. For non-Claude-Code editors, ensure the asset file is accessible in your project so the AI can read and extract from it.
+```bash
+# macOS / Linux
+mkdir -p ~/.config/zed/rules
+cp animate-css-skill/SKILL.md ~/.config/zed/rules/animate-css.md
+```
+
+Or for project-specific use, add a `.zed/rules/` directory in your project root:
+
+```bash
+mkdir -p .zed/rules
+cp animate-css-skill/SKILL.md .zed/rules/animate-css.md
+```
 
 ---
 
-## Usage examples
+### Aider
 
-Just describe what you want — Claude handles the rest.
+Pass the skill as a read-only context file when starting Aider:
+
+```bash
+aider --read animate-css-skill/SKILL.md
+```
+
+Or add it to your `.aider.conf.yml` for persistent use:
+
+```yaml
+read:
+  - animate-css-skill/SKILL.md
+```
+
+---
+
+### Continue.dev (VS Code / JetBrains)
+
+Add the skill as a context file in your `.continue/config.yaml`:
+
+```yaml
+systemMessage: |
+  {{file:animate-css-skill/SKILL.md}}
+```
+
+Or use the `@file` context provider in chat to reference `SKILL.md` directly.
+
+---
+
+### Other AI Agents
+
+For any agent that supports a custom system prompt, rules file, or context file, point it at `animate-css-skill/SKILL.md`. The skill is plain Markdown with YAML frontmatter — most systems can consume it directly.
+
+> **Note:** The bundled `assets/animate.min.css` is referenced by the skill instructions. Make sure the asset file is accessible in your project so the AI agent can read and extract from it.
+
+---
+
+## Usage
+
+Just describe what you want — your AI agent handles the rest.
 
 > "Add animations to this hero section"
 
@@ -195,7 +248,7 @@ Vertical and attention-seeker animations (`fadeInUp`, `pulse`, `bounce`, etc.) a
 
 Bundled: **v4.1.1** — [animate-css/animate.css](https://github.com/animate-css/animate.css) — MIT licensed.
 
-The full library is included in `assets/animate.min.css`. Claude extracts only the `@keyframes` and class blocks actually used in your project, keeping your CSS lean.
+The full library is included in `assets/animate.min.css`. Your AI agent extracts only the `@keyframes` and class blocks actually used in your project, keeping your CSS lean.
 
 ---
 
